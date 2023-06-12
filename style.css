@@ -7,38 +7,44 @@
 	font-family: "font-1";
 	src: url(./assets/NotoSans-Medium.ttf);
 }
-* {
+*,
+::before,
+::after {
 	margin: 0;
 	padding: 0;
+	box-sizing: inherit;
 }
 body {
 	font-family: "font-1", serif;
 	background: url(./assets/sunrise.jpg) no-repeat fixed center/cover;
 	height: 95vh;
+	box-sizing: border-box;
+	font-size: 62.5%; /* ie 1rem=10px  */
 }
 
 h1 {
 	/* On peut changer avec l'inspection */
 	color: rgb(102, 102, 243);
-	font-size: 2.5 rem;
+	font-size: 4rem;
 	letter-spacing: 2px;
 	text-align: center;
 	text-shadow: 5px 0 0 #d5cbcb23;
 	font-family: "font-1", "Roboto", sans-serif;
+	padding: 5rem;
 }
 
 main {
 	background-color: whitesmoke;
 	width: 90%;
 	margin: 0 auto;
-	padding: 10px 20px;
-	border-radius: 15px;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	-ms-border-radius: 15px;
-	-o-border-radius: 15px;
+	padding: 1rem 2rem;
+	border-radius: 1.5rem;
+	-webkit-border-radius: 1.5rem;
+	-moz-border-radius: 1.5rem;
+	-ms-border-radius: 1.5rem;
+	-o-border-radius: 1.5rem;
 	box-shadow: 0 2px 12px 5px rgba(0, 0, 0, 0.863);
-	min-height: 500px;
+	min-height: 50rem;
 }
 
 .div-position,
@@ -57,12 +63,13 @@ main {
 /************************POSITION*******/
 .div-position {
 	position: relative;
+	height: 8rem;
 }
 
 /* Circle à gauche */
 #circle {
-	width: 60px;
-	height: 60px;
+	width: 6rem;
+	height: 6rem;
 	background-color: rgb(189, 255, 189);
 	padding: 20px;
 	position: absolute;
@@ -93,6 +100,14 @@ main {
 	-ms-transform: translate(-50%, -50%);
 	-o-transform: translate(-50%, -50%);
 	z-index: 0;
+}
+
+/* Quand on ne met pas pos abs, ça marche sur le h2 */
+#triangle {
+	background: #5dea15;
+	padding: 2rem;
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+	box-shadow: 0 1.5rem 4rem rgba(92, 235, 20, 0.808);
 }
 
 /****************************FLEXBOX ******************/
@@ -135,13 +150,30 @@ textarea {
 	font-size: 1rem;
 	margin: 5px;
 	height: 40px;
-	border: 1px solid rgb(3, 31, 2);
 	font-family: serif;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
+}
+
+/**/
+input {
+	outline: none;
+	border: 1px solid transparent;
+}
+input:focus {
+	border: 1px solid #5dea15;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.863);
+}
+/* Il faut rajouter required à HTML */
+input:focus:invalid {
+	border: 3px solid red;
+}
+
+textarea {
+	border: 3px solid rgb(3, 31, 2);
 }
 
 #firstName {
